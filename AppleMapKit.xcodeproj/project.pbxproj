@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520E587F1A09D9CB00804AA7 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E587E1A09D9CB00804AA7 /* NetworkController.swift */; };
+		520E58811A09DE3800804AA7 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E58801A09DE3800804AA7 /* CoreDataController.swift */; };
+		5292A45C1A0AA394002F2FF2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5292A45B1A0AA394002F2FF2 /* CloudKit.framework */; };
+		5292A45E1A0AC30F002F2FF2 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292A45D1A0AC30F002F2FF2 /* Reminder.swift */; };
 		52B85F821A09B61100BCCFB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B85F811A09B61100BCCFB0 /* AppDelegate.swift */; };
 		52B85F851A09B61100BCCFB0 /* AppleMapKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52B85F831A09B61100BCCFB0 /* AppleMapKit.xcdatamodeld */; };
-		52B85F871A09B61100BCCFB0 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B85F861A09B61100BCCFB0 /* ReminderViewController.swift */; };
+		52B85F871A09B61100BCCFB0 /* ReminderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B85F861A09B61100BCCFB0 /* ReminderListViewController.swift */; };
 		52B85F8A1A09B61100BCCFB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B85F881A09B61100BCCFB0 /* Main.storyboard */; };
 		52B85F8C1A09B61100BCCFB0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B85F8B1A09B61100BCCFB0 /* Images.xcassets */; };
 		52B85F8F1A09B61100BCCFB0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52B85F8D1A09B61100BCCFB0 /* LaunchScreen.xib */; };
@@ -29,11 +33,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		520E587E1A09D9CB00804AA7 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		520E58801A09DE3800804AA7 /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		5292A45A1A0AA375002F2FF2 /* AppleMapKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AppleMapKit.entitlements; sourceTree = "<group>"; };
+		5292A45B1A0AA394002F2FF2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		5292A45D1A0AC30F002F2FF2 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		52B85F7C1A09B61100BCCFB0 /* AppleMapKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMapKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B85F801A09B61100BCCFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52B85F811A09B61100BCCFB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B85F841A09B61100BCCFB0 /* AppleMapKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppleMapKit.xcdatamodel; sourceTree = "<group>"; };
-		52B85F861A09B61100BCCFB0 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		52B85F861A09B61100BCCFB0 /* ReminderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListViewController.swift; sourceTree = "<group>"; };
 		52B85F891A09B61100BCCFB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52B85F8B1A09B61100BCCFB0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		52B85F8E1A09B61100BCCFB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -49,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5292A45C1A0AA394002F2FF2 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +75,7 @@
 		52B85F731A09B61100BCCFB0 = {
 			isa = PBXGroup;
 			children = (
+				5292A45B1A0AA394002F2FF2 /* CloudKit.framework */,
 				52B85F7E1A09B61100BCCFB0 /* AppleMapKit */,
 				52B85F971A09B61100BCCFB0 /* AppleMapKitTests */,
 				52B85F7D1A09B61100BCCFB0 /* Products */,
@@ -83,14 +94,18 @@
 		52B85F7E1A09B61100BCCFB0 /* AppleMapKit */ = {
 			isa = PBXGroup;
 			children = (
+				5292A45A1A0AA375002F2FF2 /* AppleMapKit.entitlements */,
 				52B85F811A09B61100BCCFB0 /* AppDelegate.swift */,
 				52B85FA41A09B65D00BCCFB0 /* ViewController.swift */,
+				520E587E1A09D9CB00804AA7 /* NetworkController.swift */,
+				520E58801A09DE3800804AA7 /* CoreDataController.swift */,
 				52B85FA51A09B65D00BCCFB0 /* AddReminderViewController.swift */,
-				52B85F861A09B61100BCCFB0 /* ReminderViewController.swift */,
+				52B85F861A09B61100BCCFB0 /* ReminderListViewController.swift */,
 				52B85F881A09B61100BCCFB0 /* Main.storyboard */,
 				52B85F8B1A09B61100BCCFB0 /* Images.xcassets */,
 				52B85F8D1A09B61100BCCFB0 /* LaunchScreen.xib */,
 				52B85F831A09B61100BCCFB0 /* AppleMapKit.xcdatamodeld */,
+				5292A45D1A0AC30F002F2FF2 /* Reminder.swift */,
 				52B85F7F1A09B61100BCCFB0 /* Supporting Files */,
 			);
 			path = AppleMapKit;
@@ -170,6 +185,12 @@
 				TargetAttributes = {
 					52B85F7B1A09B61100BCCFB0 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = U4W99KQX8J;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					52B85F931A09B61100BCCFB0 = {
 						CreatedOnToolsVersion = 6.1;
@@ -222,10 +243,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				52B85FA71A09B65D00BCCFB0 /* AddReminderViewController.swift in Sources */,
-				52B85F871A09B61100BCCFB0 /* ReminderViewController.swift in Sources */,
+				52B85F871A09B61100BCCFB0 /* ReminderListViewController.swift in Sources */,
+				520E587F1A09D9CB00804AA7 /* NetworkController.swift in Sources */,
+				520E58811A09DE3800804AA7 /* CoreDataController.swift in Sources */,
 				52B85F851A09B61100BCCFB0 /* AppleMapKit.xcdatamodeld in Sources */,
 				52B85F821A09B61100BCCFB0 /* AppDelegate.swift in Sources */,
 				52B85FA61A09B65D00BCCFB0 /* ViewController.swift in Sources */,
+				5292A45E1A0AC30F002F2FF2 /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,9 +374,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AppleMapKit/AppleMapKit.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AppleMapKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -360,9 +388,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AppleMapKit/AppleMapKit.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AppleMapKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -419,6 +451,7 @@
 				52B85FA01A09B61100BCCFB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52B85FA11A09B61100BCCFB0 /* Build configuration list for PBXNativeTarget "AppleMapKitTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +460,7 @@
 				52B85FA31A09B61100BCCFB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

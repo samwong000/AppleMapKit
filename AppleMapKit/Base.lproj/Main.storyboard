@@ -8,7 +8,7 @@
         <!--Add Reminder View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AddReminderViewController" customModule="AppleMapKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ADDREMINDER_VC" id="BYZ-38-t0r" customClass="AddReminderViewController" customModule="AppleMapKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-fx-rzj">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-fx-rzj">
                                 <rect key="frame" x="250" y="285" width="101" height="30"/>
                                 <state key="normal" title="Add Reminder">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,16 +28,20 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Aid-fx-rzj" secondAttribute="centerX" id="5hR-Cm-1Gh"/>
+                            <constraint firstAttribute="centerY" secondItem="Aid-fx-rzj" secondAttribute="centerY" id="zXW-1L-bFB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="770" y="-1640"/>
+            <point key="canvasLocation" x="768" y="-1640"/>
         </scene>
-        <!--Reminder View Controller-->
+        <!--Reminder List View Controller-->
         <scene sceneID="4Dg-vN-cfn">
             <objects>
-                <viewController id="Sl9-cW-CEE" customClass="ReminderViewController" customModule="AppleMapKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Sl9-cW-CEE" customClass="ReminderListViewController" customModule="AppleMapKit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="enT-Nk-jMa"/>
                         <viewControllerLayoutGuide type="bottom" id="VXi-jB-O2I"/>
@@ -49,6 +53,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aI9-TN-X7V">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELL" id="djN-t9-IPL">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="djN-t9-IPL" id="9h6-4j-2WX">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,7 +73,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Bkv-PR-o1T"/>
                     <connections>
-                        <outlet property="tableView" destination="aI9-TN-X7V" id="Qm4-cR-Bja"/>
+                        <outlet property="tableView" destination="aI9-TN-X7V" id="rxK-UE-9By"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QM8-Yh-F8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -115,11 +127,11 @@
             </objects>
             <point key="canvasLocation" x="-1573" y="-1303"/>
         </scene>
-        <!--Item 1-->
+        <!--Map-->
         <scene sceneID="5BK-PU-zpN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9YA-5H-kdS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Kj4-oC-JJu"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="Kj4-oC-JJu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b9I-R4-shF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -134,11 +146,11 @@
             </objects>
             <point key="canvasLocation" x="-748" y="-1640"/>
         </scene>
-        <!--Item 2-->
+        <!--Reminder-->
         <scene sceneID="1OM-3n-bW9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vo1-2Z-lDQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="6tN-Sr-4bZ"/>
+                    <tabBarItem key="tabBarItem" title="Reminder" id="6tN-Sr-4bZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DFQ-p5-oPv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
