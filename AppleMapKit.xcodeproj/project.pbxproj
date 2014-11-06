@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		520E587F1A09D9CB00804AA7 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E587E1A09D9CB00804AA7 /* NetworkController.swift */; };
 		520E58811A09DE3800804AA7 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E58801A09DE3800804AA7 /* CoreDataController.swift */; };
 		5292A45C1A0AA394002F2FF2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5292A45B1A0AA394002F2FF2 /* CloudKit.framework */; };
 		5292A45E1A0AC30F002F2FF2 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292A45D1A0AC30F002F2FF2 /* Reminder.swift */; };
@@ -33,7 +32,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		520E587E1A09D9CB00804AA7 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		520E58801A09DE3800804AA7 /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		5292A45A1A0AA375002F2FF2 /* AppleMapKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AppleMapKit.entitlements; sourceTree = "<group>"; };
 		5292A45B1A0AA394002F2FF2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -97,7 +95,6 @@
 				5292A45A1A0AA375002F2FF2 /* AppleMapKit.entitlements */,
 				52B85F811A09B61100BCCFB0 /* AppDelegate.swift */,
 				52B85FA41A09B65D00BCCFB0 /* ViewController.swift */,
-				520E587E1A09D9CB00804AA7 /* NetworkController.swift */,
 				520E58801A09DE3800804AA7 /* CoreDataController.swift */,
 				52B85FA51A09B65D00BCCFB0 /* AddReminderViewController.swift */,
 				52B85F861A09B61100BCCFB0 /* ReminderListViewController.swift */,
@@ -244,7 +241,6 @@
 			files = (
 				52B85FA71A09B65D00BCCFB0 /* AddReminderViewController.swift in Sources */,
 				52B85F871A09B61100BCCFB0 /* ReminderListViewController.swift in Sources */,
-				520E587F1A09D9CB00804AA7 /* NetworkController.swift in Sources */,
 				520E58811A09DE3800804AA7 /* CoreDataController.swift in Sources */,
 				52B85F851A09B61100BCCFB0 /* AppleMapKit.xcdatamodeld in Sources */,
 				52B85F821A09B61100BCCFB0 /* AppDelegate.swift in Sources */,

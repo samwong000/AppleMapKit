@@ -12,6 +12,11 @@ import CoreData
 
 class AddReminderViewController: UIViewController {
     
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var radiusTextField: UITextField!
+    @IBOutlet weak var longitudeTextField: UITextField!
+    @IBOutlet weak var latitudeTextField: UITextField!
+    
     var locationManager: CLLocationManager!
     var selectedAnnotation: MKAnnotation!
     var managedObjectContext: NSManagedObjectContext!
@@ -27,14 +32,13 @@ class AddReminderViewController: UIViewController {
     }
 
     @IBAction func didPressAddReminderButton(sender: AnyObject) {
-        var geoRegion = CLCircularRegion(center: self.selectedAnnotation.coordinate, radius: 5000.0, identifier: "TestRegion \(NSDate())")
-    
+        var geoRegion = CLCircularRegion(center: self.selectedAnnotation.coordinate, radius: 5000.0, identifier: "TestRegion")
         self.locationManager.startMonitoringForRegion(geoRegion)
         
         // insert a reminder into DB
         // the entity name must be the same one created in AppleMapKit.xcdatamodeld file
         var newReminder = NSEntityDescription.insertNewObjectForEntityForName("Reminder", inManagedObjectContext: self.managedObjectContext) as Reminder
-        newReminder.name = "Reminder \(NSDate())"
+        newReminder.name = nameTextField.text
         
         var error: NSError?
         self.managedObjectContext.save(&error)
@@ -51,24 +55,6 @@ class AddReminderViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()         // Dispose of any resources that can be recreated.
     }
-    
-//    func reverseGeocode(location: CLLocation) {
-//        var geoCoder = CLGeocoder()
-//
-//        CLGeocoder().reverseGeocodeLocation(location, completionHandler:
-//            { (placemarks, error) in
-//                if (error != nil) {
-//                    println("reverse geodcode fail: \(error.localizedDescription)")
-//                } else {
-//                    let pm = placemarks as [CLPlacemark]
-//                    if pm.count > 0 {
-//                        println(pm[0])
-//                        //self.showAddPinViewController(placemarks[0] as CLPlacemark)
-//                    }
-//                }
-//        })
-//    }
-//    
     
 
 

@@ -8,13 +8,15 @@
 
 import UIKit
 import CoreData
+import MapKit
 
-class ReminderListViewController: UIViewController, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class ReminderListViewController: UIViewController, UITableViewDataSource, NSFetchedResultsControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     var managedObjectContext : NSManagedObjectContext!
     var fetchedResultsController : NSFetchedResultsController!
+    var locationManager : CLLocationManager!
     
 //    var reminder = [NSManagedObject]()
     
@@ -23,7 +25,11 @@ class ReminderListViewController: UIViewController, UITableViewDataSource, NSFet
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.managedObjectContext = appDelegate.managedObjectContext
-    
+        
+        self.locationManager = appDelegate.locationManager
+        self.locationManager.delegate = self
+        
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didGetCloudChanges:", name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: appDelegate.persistentStoreCoordinator)
         
         // fetch data from DB
@@ -62,6 +68,17 @@ class ReminderListViewController: UIViewController, UITableViewDataSource, NSFet
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            println("number of monitored regions before removing:\(self.locationManager.monitoredRegions.allObjects.count)")
+            let geoRegion = self.fetchedResultsController.objectAtIndexPath(indexPath) as Reminder
+            for region in self.locationManager.monitoredRegions {
+                if (region.identifier == geoRegion.name) {
+                    self.locationManager.stopMonitoringForRegion(region as CLRegion)
+                    println("number of monitored regions after removing:\(self.locationManager.monitoredRegions.allObjects.count)")
+                }
+                
+            }
+            
             self.managedObjectContext.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as Reminder)
             
             var error: NSError? = nil

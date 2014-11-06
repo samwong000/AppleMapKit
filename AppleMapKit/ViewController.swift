@@ -15,9 +15,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
+    //var managedObjectContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+//        self.managedObjectContext = appDelegate.managedObjectContext
         
         // set notification
         // selector "reminderAdded:", the : means there is a parameter in that funcation name
@@ -117,7 +121,50 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         addReminderVC.selectedAnnotation = view.annotation
         
         self.presentViewController(addReminderVC, animated: true, completion: nil)
+        
+//        var alert  = UIAlertController(title: "New reminder", message: "Add a new name", preferredStyle: UIAlertControllerStyle.Alert)
+//        let saveAction = UIAlertAction(title: "Save",
+//            style: .Default) { (action: UIAlertAction!) -> Void in
+//                let textField = alert.textFields![0] as UITextField
+//                self.saveReminder(textField.text)
+//        }
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action) -> Void in
+//        }
+//        
+//        alert.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
+//        }
+//        
+//        alert.addAction(saveAction)
+//        alert.addAction(cancelAction)
+//        
+//        presentViewController(alert, animated: true, completion: nil)
     }
+
+//    func addNewReminder(selectedAnnotation: MKAnnotation, reminderName: String) {
+//        let radius = 5000.0
+//        
+//        var geoRegion = CLCircularRegion(center: selectedAnnotation.coordinate, radius: radius, identifier: "Test Region")
+//        
+//        self.locationManager.startMonitoringForRegion(geoRegion)
+//        
+//        // insert a reminder into DB
+//        // the entity name must be the same one created in AppleMapKit.xcdatamodeld file
+//        var newReminder = NSEntityDescription.insertNewObjectForEntityForName("Reminder", inManagedObjectContext: self.managedObjectContext) as Reminder
+//        
+//        newReminder.name = reminderName
+//        
+//        var error: NSError?
+//        self.managedObjectContext.save(&error)
+//        
+//        if error != nil {
+//            println(error?.localizedDescription)
+//        } else {
+//            // send out notification
+//            NSNotificationCenter.defaultCenter().postNotificationName("DID_ADD_REMINDER", object: self, userInfo: ["region" : geoRegion])
+//            self.dismissViewControllerAnimated(true, completion: nil)
+//        }
+//    }
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status {
@@ -127,7 +174,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             println("locationManager.didChangeAuthorizationStatus CLAuthorizationStatus.default")
         }
     }
-    
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         println("locationManager.didUpdateLocations")
