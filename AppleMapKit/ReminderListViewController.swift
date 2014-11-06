@@ -36,7 +36,7 @@ class ReminderListViewController: UIViewController, UITableViewDataSource, NSFet
         self.tableView.dataSource = self
         
         var error: NSError?
-        if self.fetchedResultsController.performFetch(&error) {
+        if !self.fetchedResultsController.performFetch(&error) {
             println("ReminderListViewController.viewDidLoad Error : \(error?.localizedDescription)")
         }
     }
@@ -60,15 +60,57 @@ class ReminderListViewController: UIViewController, UITableViewDataSource, NSFet
         return self.fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            self.managedObjectContext.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as Reminder)
+            
+            var error: NSError? = nil
+            if !self.managedObjectContext.save(&error) {
+                abort()
+            }
+        }
+    }
+    
     func didGetCloudChanges(notification: NSNotification) {
         self.managedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
     }
     
-    // MARK : - NSFetchedResultsControllerDelegate
+    // MARK : - Fetched results controller
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.endUpdates()
         self.tableView.reloadData()
     }
     
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch type {
+        case .Insert:
+            self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        case .Delete:
+            self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        default:
+            return
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        case .Delete:
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+//        case .Update:
+//            self.configureCell(tableView.cellForRowAtIndexPath(indexPath!)!, atIndexPath: indexPath!)
+        case .Move:
+            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        default:
+            return
+        }
+    }
 }
 
