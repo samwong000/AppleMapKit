@@ -18,6 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if (UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:"))) {
+            let types = UIUserNotificationType.Alert | UIUserNotificationType.Badge
+            application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: types, categories: nil))
+        }
+        
+        if (UIApplication.instancesRespondToSelector(Selector("registerForRemoteNotifications"))) {
+            UIApplication.sharedApplication().registerForRemoteNotifications()
+        }
+        
         return true
     }
 
@@ -45,6 +55,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
+    // MARK: - Notifications
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        println("appDelegate.didRegisterForRemoteNotificationsWithDeviceToken Device is \(deviceToken) bytes long.")
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        println("appDelegate.didFailToRegisterForRemoteNotificationsWithError")
+    }
+    
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {

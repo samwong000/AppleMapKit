@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		520E58811A09DE3800804AA7 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520E58801A09DE3800804AA7 /* CoreDataController.swift */; };
+		5251D00C1A0F307900CE7E2A /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 5251D00A1A0F307900CE7E2A /* map.png */; };
+		5251D00D1A0F307900CE7E2A /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 5251D00B1A0F307900CE7E2A /* list.png */; };
 		5292A45C1A0AA394002F2FF2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5292A45B1A0AA394002F2FF2 /* CloudKit.framework */; };
 		5292A45E1A0AC30F002F2FF2 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5292A45D1A0AC30F002F2FF2 /* Reminder.swift */; };
 		52B85F821A09B61100BCCFB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B85F811A09B61100BCCFB0 /* AppDelegate.swift */; };
@@ -33,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		520E58801A09DE3800804AA7 /* CoreDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		5251D00A1A0F307900CE7E2A /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		5251D00B1A0F307900CE7E2A /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		5292A45A1A0AA375002F2FF2 /* AppleMapKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AppleMapKit.entitlements; sourceTree = "<group>"; };
 		5292A45B1A0AA394002F2FF2 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5292A45D1A0AC30F002F2FF2 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		52B85F7E1A09B61100BCCFB0 /* AppleMapKit */ = {
 			isa = PBXGroup;
 			children = (
+				5251D00A1A0F307900CE7E2A /* map.png */,
+				5251D00B1A0F307900CE7E2A /* list.png */,
 				5292A45A1A0AA375002F2FF2 /* AppleMapKit.entitlements */,
 				52B85F811A09B61100BCCFB0 /* AppDelegate.swift */,
 				52B85FA41A09B65D00BCCFB0 /* ViewController.swift */,
@@ -219,7 +225,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5251D00C1A0F307900CE7E2A /* map.png in Resources */,
 				52B85F8A1A09B61100BCCFB0 /* Main.storyboard in Resources */,
+				5251D00D1A0F307900CE7E2A /* list.png in Resources */,
 				52B85F8F1A09B61100BCCFB0 /* LaunchScreen.xib in Resources */,
 				52B85F8C1A09B61100BCCFB0 /* Images.xcassets in Resources */,
 			);

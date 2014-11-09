@@ -12,17 +12,28 @@ import CoreData
 
 class AddReminderViewController: UIViewController {
     
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var radiusTextField: UITextField!
-    @IBOutlet weak var longitudeTextField: UITextField!
-    @IBOutlet weak var latitudeTextField: UITextField!
+    
+    @IBAction func cancelPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     var locationManager: CLLocationManager!
     var selectedAnnotation: MKAnnotation!
     var managedObjectContext: NSManagedObjectContext!
+    var mapType : MKMapType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.mapView.mapType = mapType ?? MKMapType.Standard
+        
+        // set camera zoom in
+        let mapCamera = MKMapCamera(lookingAtCenterCoordinate: selectedAnnotation.coordinate, fromEyeCoordinate: selectedAnnotation.coordinate, eyeAltitude: 4)
+        self.mapView.addAnnotation(selectedAnnotation)
+        self.mapView.setCamera(mapCamera, animated: true)
+
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.managedObjectContext = appDelegate.managedObjectContext
@@ -31,7 +42,7 @@ class AddReminderViewController: UIViewController {
 //        let regions = regionSet.allObjects
     }
 
-    @IBAction func didPressAddReminderButton(sender: AnyObject) {
+    @IBAction func didPressAddNowButton(sender: AnyObject) {
         var geoRegion = CLCircularRegion(center: self.selectedAnnotation.coordinate, radius: 5000.0, identifier: "TestRegion")
         self.locationManager.startMonitoringForRegion(geoRegion)
         

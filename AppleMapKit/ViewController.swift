@@ -11,8 +11,23 @@ import MapKit
 import CoreData
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-
+    
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBAction func setMapTypeSegmentPressed(sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            self.mapView.mapType = MKMapType.Standard
+        case 1:
+            self.mapView.mapType = MKMapType.Satellite
+        case 2:
+            self.mapView.mapType = MKMapType.Hybrid
+        default:
+            mapView.mapType = mapView.mapType
+        }
+    }
     
     let locationManager = CLLocationManager()
     //var managedObjectContext: NSManagedObjectContext!
@@ -20,6 +35,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Location Reminder"
 //        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 //        self.managedObjectContext = appDelegate.managedObjectContext
         
@@ -83,6 +99,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             annotation.coordinate = touchCoordinate
             annotation.title = "Add Reminder"
             self.mapView.addAnnotation(annotation)
+        
         }
     }
 
@@ -102,6 +119,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         println("mapView.viewForAnnotation")
         
+        // show address label
+        let latitude = annotation.coordinate.latitude
+        let longitude = annotation.coordinate.longitude
+        var location = CLLocation(latitude: latitude, longitude: latitude)
+        let address = self.reverseGeocodeLocation(location)
+        
+        self.addressLabel.text = address
+//        let labelheight = self.addressLabel.intrinsicContentSize().height
+        //self.view.layoutIfNeeded()
+        println(address)
+        
+        
+//                    let labelHeight = self.addressLabel.intrinsicContentSize().height
+//                    self.mapView.padding = UIEdgeInsets(top: self.topLayoutGuide.length, left: 0, bottom: labelHeight, right: 0)
+//                    UIView.animateWithDuration(0.25) {
+//                        self.pinImageVerticalConstraint.constant = ((labelHeight - self.topLayoutGuide.length) * 2)
+//                        self.view.layoutIfNeeded()
+//                    }
+        
+        
         let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "ANNOTATION")
         annotationView.animatesDrop = true
         annotationView.canShowCallout = true
@@ -119,57 +156,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let addReminderVC = self.storyboard?.instantiateViewControllerWithIdentifier("ADDREMINDER_VC") as AddReminderViewController
         addReminderVC.locationManager = self.locationManager
         addReminderVC.selectedAnnotation = view.annotation
+        addReminderVC.mapType = self.mapView.mapType
         
         self.presentViewController(addReminderVC, animated: true, completion: nil)
-        
-//        var alert  = UIAlertController(title: "New reminder", message: "Add a new name", preferredStyle: UIAlertControllerStyle.Alert)
-//        let saveAction = UIAlertAction(title: "Save",
-//            style: .Default) { (action: UIAlertAction!) -> Void in
-//                let textField = alert.textFields![0] as UITextField
-//                self.saveReminder(textField.text)
-//        }
-//        
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action) -> Void in
-//        }
-//        
-//        alert.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
-//        }
-//        
-//        alert.addAction(saveAction)
-//        alert.addAction(cancelAction)
-//        
-//        presentViewController(alert, animated: true, completion: nil)
-    }
 
-//    func addNewReminder(selectedAnnotation: MKAnnotation, reminderName: String) {
-//        let radius = 5000.0
-//        
-//        var geoRegion = CLCircularRegion(center: selectedAnnotation.coordinate, radius: radius, identifier: "Test Region")
-//        
-//        self.locationManager.startMonitoringForRegion(geoRegion)
-//        
-//        // insert a reminder into DB
-//        // the entity name must be the same one created in AppleMapKit.xcdatamodeld file
-//        var newReminder = NSEntityDescription.insertNewObjectForEntityForName("Reminder", inManagedObjectContext: self.managedObjectContext) as Reminder
-//        
-//        newReminder.name = reminderName
-//        
-//        var error: NSError?
-//        self.managedObjectContext.save(&error)
-//        
-//        if error != nil {
-//            println(error?.localizedDescription)
-//        } else {
-//            // send out notification
-//            NSNotificationCenter.defaultCenter().postNotificationName("DID_ADD_REMINDER", object: self, userInfo: ["region" : geoRegion])
-//            self.dismissViewControllerAnimated(true, completion: nil)
-//        }
-//    }
-    
+}
+
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         switch status {
         case .Authorized:
             println("locationManager.didChangeAuthorizationStatus CLAuthorizationStatus.Authorized")
+            locationManager.startUpdatingLocation()
+            
         default:
             println("locationManager.didChangeAuthorizationStatus CLAuthorizationStatus.default")
         }
@@ -179,20 +177,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         println("locationManager.didUpdateLocations")
         
         if let location = locations.last as? CLLocation {
-            println("Lat: \(location.coordinate.latitude), Long: \(location.coordinate.longitude)")
+//            println("Lat: \(location.coordinate.latitude), Long: \(location.coordinate.longitude)")
+//            //Reverse Geocoding
+//            self.reverseGeocodeLocation(location)
             
-            //Reverse Geocoding
-            self.reverseGeocodeLocation(location)
+            locationManager.stopUpdatingLocation()
+            //fetchNearbyPlaces(location.coordinate)
         }
+
     }
     
     func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
         println("locationManager.didEnterRegion")
+        
+        // background notification
+        if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+            var notification = UILocalNotification()
+            notification.alertAction = "You have entered a monitored "
+            notification.alertBody = "Reminder."
+            notification.fireDate = NSDate()
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
+        
     }
     
     func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
         println("locationManager.didExitRegion")
     }
+    
     
     func reverseGeocodeLocation(location: CLLocation) -> String? {
         var address: String? = nil
@@ -213,7 +225,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 }
                 
                 address = "\(subThoroughfare) \(p.thoroughfare) \n \(p.subLocality) \n \(p.subAdministrativeArea) \n \(p.postalCode) \n \(p.country)"
-                println(address)
+                println("reverseGeocodeLocation address is \(address)")
                 
 //                self.placemark = CLPlacemark(placemark: stuff[0] as CLPlacemark)
 //                

@@ -17,123 +17,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aid-fx-rzj">
-                                <rect key="frame" x="250" y="172" width="101" height="30"/>
-                                <state key="normal" title="Add Reminder">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didPressAddReminderButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gBF-7L-j6u"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pAd-05-aNh">
-                                <rect key="frame" x="130" y="20" width="454" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pgl-Og-ENq">
-                                <rect key="frame" x="130" y="96" width="454" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="owO-bA-dAs">
-                                <rect key="frame" x="130" y="134" width="454" height="30"/>
+                                <rect key="frame" x="82" y="84" width="502" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4e-BO-b8f">
-                                <rect key="frame" x="16" y="23" width="106" height="21"/>
+                                <rect key="frame" x="16" y="87" width="58" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="ODe-Pz-3Ni"/>
-                                    <constraint firstAttribute="height" constant="21" id="t3P-eU-jVs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radius" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4M-Kr-zxu">
-                                <rect key="frame" x="16" y="58" width="106" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="5jf-Ku-LU8"/>
-                                    <constraint firstAttribute="width" constant="106" id="u3H-Ml-8Ui"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swL-h2-SF2">
-                                <rect key="frame" x="16" y="96" width="106" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="omo-WU-dvE"/>
-                                    <constraint firstAttribute="height" constant="21" id="x1K-JH-GOc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTy-Sa-LXA">
-                                <rect key="frame" x="16" y="138" width="106" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="106" id="hwd-tB-Ckl"/>
-                                    <constraint firstAttribute="height" constant="21" id="oci-tQ-TVc"/>
+                                    <constraint firstAttribute="height" constant="21" id="Nhz-fr-EL9"/>
+                                    <constraint firstAttribute="width" constant="58" id="T8A-tz-Vr5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Oca-88-IoI">
-                                <rect key="frame" x="0.0" y="225" width="600" height="375"/>
+                                <rect key="frame" x="0.0" y="131" width="600" height="500"/>
                             </mapView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9Q-ff-hqr">
-                                <rect key="frame" x="130" y="58" width="454" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uT5-0X-Lpe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="CoD-cS-fK7"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Add Reminder" id="gAl-4Y-TsZ">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" style="plain" id="QVe-Ki-ZaL">
+                                            <connections>
+                                                <action selector="cancelPressed:" destination="BYZ-38-t0r" id="xij-KH-luI"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" style="plain" id="TTS-ft-X9T">
+                                            <connections>
+                                                <action selector="didPressAddNowButton:" destination="BYZ-38-t0r" id="bw9-Ih-0mz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="g9Q-ff-hqr" firstAttribute="leading" secondItem="i4M-Kr-zxu" secondAttribute="trailing" constant="8" id="5IS-QN-Y0L"/>
-                            <constraint firstItem="pAd-05-aNh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="62K-Pr-Ozt"/>
-                            <constraint firstItem="pAd-05-aNh" firstAttribute="leading" secondItem="k4e-BO-b8f" secondAttribute="trailing" constant="8" id="7Yp-m0-tGf"/>
-                            <constraint firstItem="owO-bA-dAs" firstAttribute="leading" secondItem="lTy-Sa-LXA" secondAttribute="trailing" constant="8" id="99x-aA-Aq3"/>
-                            <constraint firstItem="swL-h2-SF2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="A23-kc-O9A"/>
-                            <constraint firstItem="Aid-fx-rzj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="152" id="ABX-YB-LGQ"/>
-                            <constraint firstItem="i4M-Kr-zxu" firstAttribute="top" secondItem="k4e-BO-b8f" secondAttribute="bottom" constant="14" id="Acz-8m-BD3"/>
-                            <constraint firstItem="g9Q-ff-hqr" firstAttribute="top" secondItem="pAd-05-aNh" secondAttribute="bottom" constant="8" id="CXU-5D-bN8"/>
-                            <constraint firstItem="k4e-BO-b8f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DJ6-Ku-knd"/>
-                            <constraint firstAttribute="centerX" secondItem="Aid-fx-rzj" secondAttribute="centerX" id="ESc-5i-mAw"/>
-                            <constraint firstItem="g9Q-ff-hqr" firstAttribute="leading" secondItem="i4M-Kr-zxu" secondAttribute="trailing" constant="8" id="Ibz-HZ-6gd"/>
-                            <constraint firstItem="pgl-Og-ENq" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="M0H-ip-USI"/>
-                            <constraint firstItem="k4e-BO-b8f" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="3" id="Mwl-dh-vge"/>
-                            <constraint firstItem="owO-bA-dAs" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Nk3-J0-dTA"/>
-                            <constraint firstItem="pAd-05-aNh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="P9J-I7-xea"/>
-                            <constraint firstItem="g9Q-ff-hqr" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Q0K-sC-n28"/>
-                            <constraint firstItem="lTy-Sa-LXA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="fiW-aX-htu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Oca-88-IoI" secondAttribute="trailing" constant="-16" id="gDN-gW-1Xq"/>
-                            <constraint firstItem="Oca-88-IoI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="205" id="n8J-F8-Mct"/>
-                            <constraint firstItem="swL-h2-SF2" firstAttribute="top" secondItem="i4M-Kr-zxu" secondAttribute="bottom" constant="17" id="pLS-n4-Aei"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Oca-88-IoI" secondAttribute="bottom" id="qBN-Oa-Ezj"/>
-                            <constraint firstItem="owO-bA-dAs" firstAttribute="leading" secondItem="lTy-Sa-LXA" secondAttribute="trailing" constant="8" id="quE-1U-7X1"/>
-                            <constraint firstItem="lTy-Sa-LXA" firstAttribute="top" secondItem="swL-h2-SF2" secondAttribute="bottom" constant="21" id="usU-eA-x6o"/>
-                            <constraint firstItem="i4M-Kr-zxu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="vuE-iR-853"/>
-                            <constraint firstItem="owO-bA-dAs" firstAttribute="top" secondItem="pgl-Og-ENq" secondAttribute="bottom" constant="8" id="vyV-c5-79O"/>
-                            <constraint firstItem="pgl-Og-ENq" firstAttribute="leading" secondItem="swL-h2-SF2" secondAttribute="trailing" constant="8" id="xhS-f9-9dk"/>
-                            <constraint firstItem="pgl-Og-ENq" firstAttribute="top" secondItem="g9Q-ff-hqr" secondAttribute="bottom" constant="8" id="yKM-Zd-DWp"/>
-                            <constraint firstItem="pgl-Og-ENq" firstAttribute="leading" secondItem="swL-h2-SF2" secondAttribute="trailing" constant="8" id="zHE-fV-EhV"/>
-                            <constraint firstItem="Oca-88-IoI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="zLJ-lw-obH"/>
-                            <constraint firstItem="pAd-05-aNh" firstAttribute="leading" secondItem="k4e-BO-b8f" secondAttribute="trailing" constant="8" id="zzx-yh-GJM"/>
+                            <constraint firstItem="Oca-88-IoI" firstAttribute="top" secondItem="k4e-BO-b8f" secondAttribute="bottom" constant="23" id="20d-bR-0a0"/>
+                            <constraint firstItem="uT5-0X-Lpe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="3r0-Qo-Bdd"/>
+                            <constraint firstItem="k4e-BO-b8f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="82z-uv-5Hj"/>
+                            <constraint firstItem="pAd-05-aNh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="FCd-yr-8bn"/>
+                            <constraint firstItem="pAd-05-aNh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="LlZ-AY-C1g"/>
+                            <constraint firstAttribute="trailing" secondItem="Oca-88-IoI" secondAttribute="trailing" id="OJg-IJ-Wkl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uT5-0X-Lpe" secondAttribute="trailing" constant="-16" id="Uod-nx-kIa"/>
+                            <constraint firstItem="pAd-05-aNh" firstAttribute="leading" secondItem="k4e-BO-b8f" secondAttribute="trailing" constant="8" id="YgD-Gv-2em"/>
+                            <constraint firstItem="Oca-88-IoI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="e0b-C4-AIf"/>
+                            <constraint firstAttribute="bottom" secondItem="Oca-88-IoI" secondAttribute="bottom" constant="-31" id="eL1-Mb-ane"/>
+                            <constraint firstItem="uT5-0X-Lpe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="eLJ-PW-UST"/>
+                            <constraint firstItem="Oca-88-IoI" firstAttribute="top" secondItem="pAd-05-aNh" secondAttribute="bottom" constant="17" id="jlE-1A-8HR"/>
+                            <constraint firstItem="k4e-BO-b8f" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="mEc-YB-OFq"/>
+                            <constraint firstItem="pAd-05-aNh" firstAttribute="leading" secondItem="k4e-BO-b8f" secondAttribute="trailing" constant="8" id="p4C-qW-2iu"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="BHZ-Vf-eUf">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="puY-Kf-2Ja"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add Reminder" id="RYd-EM-Nz9"/>
+                    </navigationItem>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="latitudeTextField" destination="owO-bA-dAs" id="nhK-Oy-Sb3"/>
-                        <outlet property="longitudeTextField" destination="pgl-Og-ENq" id="9nC-rV-nym"/>
+                        <outlet property="mapView" destination="Oca-88-IoI" id="KYd-sK-ufr"/>
                         <outlet property="nameTextField" destination="pAd-05-aNh" id="aVx-cR-nbd"/>
-                        <outlet property="radiusTextField" destination="g9Q-ff-hqr" id="TVa-E6-ICO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768" y="-1639"/>
+            <point key="canvasLocation" x="1520" y="-1639"/>
         </scene>
         <!--Reminder List View Controller-->
         <scene sceneID="4Dg-vN-cfn">
@@ -189,15 +142,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m2K-wh-65I">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="664"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="m2K-wh-65I">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="AddressLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ce-ml-jIJ">
+                                <rect key="frame" x="0.0" y="511" width="600" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="m2K-wh-65I" secondAttribute="trailing" constant="-16" id="BZ7-Tw-3sc"/>
+                            <constraint firstItem="3ce-ml-jIJ" firstAttribute="leading" secondItem="YuS-EB-zYN" secondAttribute="leadingMargin" constant="-16" id="Eg9-IP-7Z8"/>
+                            <constraint firstItem="m2K-wh-65I" firstAttribute="top" secondItem="k3r-x6-wLb" secondAttribute="bottom" id="YKv-CY-Pv5"/>
+                            <constraint firstItem="Zv3-9K-0as" firstAttribute="top" secondItem="3ce-ml-jIJ" secondAttribute="bottom" id="iwN-YQ-cf8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3ce-ml-jIJ" secondAttribute="trailing" constant="-16" id="l5X-rt-6JO"/>
+                            <constraint firstItem="m2K-wh-65I" firstAttribute="leading" secondItem="YuS-EB-zYN" secondAttribute="leadingMargin" constant="-16" id="ms0-iv-Bh2"/>
+                            <constraint firstItem="Zv3-9K-0as" firstAttribute="top" secondItem="m2K-wh-65I" secondAttribute="bottom" id="pgW-IC-tRX"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="OkI-pf-Ox9"/>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" id="OkI-pf-Ox9">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="fsi-tL-I3t">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Standard"/>
+                                <segment title="Satellite"/>
+                                <segment title="Hybrid"/>
+                            </segments>
+                            <connections>
+                                <action selector="setMapTypeSegmentPressed:" destination="wzg-I6-VoI" eventType="valueChanged" id="a3K-KA-FTO"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="addressLabel" destination="3ce-ml-jIJ" id="YAV-0a-v3q"/>
                         <outlet property="mapView" destination="m2K-wh-65I" id="CEb-MB-mtp"/>
                     </connections>
                 </viewController>
@@ -228,7 +211,7 @@
         <scene sceneID="5BK-PU-zpN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9YA-5H-kdS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Map" id="Kj4-oC-JJu"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="Kj4-oC-JJu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b9I-R4-shF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -247,7 +230,7 @@
         <scene sceneID="1OM-3n-bW9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vo1-2Z-lDQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Reminder" id="6tN-Sr-4bZ"/>
+                    <tabBarItem key="tabBarItem" title="Reminder" image="list" id="6tN-Sr-4bZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DFQ-p5-oPv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -262,5 +245,24 @@
             </objects>
             <point key="canvasLocation" x="-757" y="-967"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nEu-BL-5tl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QJw-qV-6Pc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TYV-be-SQD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cia-a5-0cL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="768" y="-1639"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="list" width="12" height="12"/>
+        <image name="map" width="12" height="12"/>
+    </resources>
 </document>

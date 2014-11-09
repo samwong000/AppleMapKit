@@ -76,7 +76,6 @@ class ReminderListViewController: UIViewController, UITableViewDataSource, NSFet
                     self.locationManager.stopMonitoringForRegion(region as CLRegion)
                     println("number of monitored regions after removing:\(self.locationManager.monitoredRegions.allObjects.count)")
                 }
-                
             }
             
             self.managedObjectContext.deleteObject(self.fetchedResultsController.objectAtIndexPath(indexPath) as Reminder)
