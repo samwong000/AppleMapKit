@@ -30,7 +30,7 @@ class AddReminderViewController: UIViewController {
         self.mapView.mapType = mapType ?? MKMapType.Standard
         
         // set camera zoom in
-        let mapCamera = MKMapCamera(lookingAtCenterCoordinate: selectedAnnotation.coordinate, fromEyeCoordinate: selectedAnnotation.coordinate, eyeAltitude: 4)
+        let mapCamera = MKMapCamera(lookingAtCenterCoordinate: selectedAnnotation.coordinate, fromEyeCoordinate: selectedAnnotation.coordinate, eyeAltitude: 100)
         self.mapView.addAnnotation(selectedAnnotation)
         self.mapView.setCamera(mapCamera, animated: true)
 

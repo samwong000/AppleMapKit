@@ -15,6 +15,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var addressLabelBottomContraint: NSLayoutConstraint!
+    
     @IBAction func setMapTypeSegmentPressed(sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
@@ -120,24 +122,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         println("mapView.viewForAnnotation")
         
         // show address label
-        let latitude = annotation.coordinate.latitude
-        let longitude = annotation.coordinate.longitude
-        var location = CLLocation(latitude: latitude, longitude: latitude)
-        let address = self.reverseGeocodeLocation(location)
-        
-        self.addressLabel.text = address
+//        let latitude = annotation.coordinate.latitude
+//        let longitude = annotation.coordinate.longitude
+//        var location = CLLocation(latitude: latitude, longitude: latitude)
+//        let address = self.reverseGeocodeLocation(location)
+//        
+//        self.addressLabel.text = address
 //        let labelheight = self.addressLabel.intrinsicContentSize().height
-        //self.view.layoutIfNeeded()
-        println(address)
-        
-        
-//                    let labelHeight = self.addressLabel.intrinsicContentSize().height
-//                    self.mapView.padding = UIEdgeInsets(top: self.topLayoutGuide.length, left: 0, bottom: labelHeight, right: 0)
-//                    UIView.animateWithDuration(0.25) {
-//                        self.pinImageVerticalConstraint.constant = ((labelHeight - self.topLayoutGuide.length) * 2)
-//                        self.view.layoutIfNeeded()
-//                    }
-        
+//        UIView.animateWithDuration(0.25, animations: { () -> Void in
+//            self.addressLabelBottomContraint.constant = (labelheight - self.topLayoutGuide.length * 2)
+//            self.view.layoutIfNeeded()
+//        })
         
         let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "ANNOTATION")
         annotationView.animatesDrop = true
@@ -193,7 +188,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // background notification
         if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
             var notification = UILocalNotification()
-            notification.alertAction = "You have entered a monitored "
+            notification.alertAction = "You have entered a monitored region."
             notification.alertBody = "Reminder."
             notification.fireDate = NSDate()
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
@@ -207,7 +202,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     
     func reverseGeocodeLocation(location: CLLocation) -> String? {
-        var address: String? = nil
+        var locationAddress: String?
         
         //Reverse Geocoding
         CLGeocoder().reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
@@ -224,8 +219,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     subThoroughfare = ""
                 }
                 
-                address = "\(subThoroughfare) \(p.thoroughfare) \n \(p.subLocality) \n \(p.subAdministrativeArea) \n \(p.postalCode) \n \(p.country)"
-                println("reverseGeocodeLocation address is \(address)")
+                locationAddress = "\(subThoroughfare) \(p.thoroughfare) \n \(p.subLocality) \n \(p.subAdministrativeArea) \n \(p.postalCode) \n \(p.country)"
+                println("reverseGeocodeLocation address is \(locationAddress!)")
                 
 //                self.placemark = CLPlacemark(placemark: stuff[0] as CLPlacemark)
 //                
@@ -238,7 +233,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 //                    self.placemark.country ? self.placemark.country : "")
             }
         })
-        return address
+        return locationAddress ?? nil
     }
     
     // address -> coordinate
